@@ -1,5 +1,5 @@
 /* wikipedia.css — Вікіпедія-стиль для сайту «Науковий образ світу».
-   Новий файл стилів (не модифікація вихідних даних). */
+   НОВИЙ файл стилів (не модифікація вихідних даних). */
 
 :root {
   --wiki-serif: "Linux Libertine", "Georgia", "Times New Roman", serif;
@@ -9,14 +9,7 @@
   --wiki-box-bg: #f8f9fa;
 }
 
-/* Тіло та основна колонка контенту: обмежена ширина ~860px, вирівнювання ліворуч */
-.md-content__inner {
-  max-width: 860px;
-  margin-left: 0;
-  margin-right: auto;
-  font-family: var(--wiki-serif);
-}
-
+/* Тіло та основна колонка контенту: серіфний шрифт */
 .md-typeset {
   font-family: var(--wiki-serif);
   font-size: 16px;
@@ -47,39 +40,9 @@
   text-align: left;
 }
 
-/* Infobox для концепцій/сутностей — плаваючий блок праворуч */
-.infobox {
-  float: right;
-  clear: right;
-  width: 280px;
-  margin: 0 0 1em 1em;
-  border: 1px solid var(--wiki-border);
-  background: var(--wiki-box-bg);
-  font-size: 0.85em;
-  padding: 0.5em 0.8em;
-  border-radius: 2px;
-}
-.infobox-title {
-  font-weight: 700;
-  text-align: center;
-  border-bottom: 1px solid var(--wiki-border);
-  padding-bottom: 0.3em;
-  margin-bottom: 0.4em;
-}
-.infobox div {
-  margin: 0.2em 0;
-}
-.infobox span {
-  color: var(--wiki-muted);
-  margin-right: 0.4em;
-}
-.infobox-tags {
-  margin-top: 0.4em;
-}
-
 /* Сторінка-джерело: приховуємо оригінальний H1 (замінено на .raw-title) */
-.raw-source .md-content__inner > h1:not(.raw-title) {
-  display: none;
+.raw-source h1:not(.raw-title) {
+  display: none !important;
 }
 .raw-title {
   font-family: var(--wiki-serif);
@@ -88,6 +51,7 @@
   padding-bottom: 0.25em;
   margin-bottom: 0.5em;
 }
+
 /* Кнопка «← На головну» */
 .home-link {
   margin: 0 0 1em 0;
@@ -103,15 +67,6 @@
 }
 .home-link a:hover {
   background: var(--wiki-box-bg);
-}
-.video-embed {
-  margin: 1em 0;
-}
-.video-embed iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 4px;
 }
 
 /* Блок «Випадкові статті» у лівому сайдбарі */
@@ -144,24 +99,8 @@
   text-decoration: underline;
 }
 
-/* Фіксація лівого та правого сайдбарів (завжди видимі при прокрутці) */
-.md-sidebar--primary,
-.md-sidebar--secondary {
-  position: sticky;
-  top: 0;
-  max-height: 100vh;
-  overflow-y: auto;
-}
+/* Адаптивність: мобільні пристрої (<=768px) */
 @media (max-width: 768px) {
-  .md-content__inner {
-    max-width: 100%;
-    padding: 0 1em;
-  }
-  .infobox {
-    float: none;
-    width: auto;
-    margin: 1em 0;
-  }
   .video-embed iframe {
     width: 100%;
   }

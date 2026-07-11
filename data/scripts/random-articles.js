@@ -57,13 +57,13 @@
       list.id = "random-articles-list";
       wrap.appendChild(list);
 
-      // Вставляємо всередину лівого сайдбару (після основної навігації)
-      var inner =
-        document.querySelector(".md-sidebar--primary .md-sidebar__inner") ||
+      // Вставляємо НАД основною навігацією (на початок лівого сайдбару),
+      // щоб блок був завжди видимий зверху без прокрутки
+      var sidebar =
         document.querySelector(".md-sidebar--primary") ||
         document.querySelector(".md-sidebar");
-      if (inner) {
-        inner.appendChild(wrap);
+      if (sidebar) {
+        sidebar.insertBefore(wrap, sidebar.firstElementChild);
       } else {
         var main = document.querySelector(".md-main");
         if (main && main.parentNode) main.parentNode.insertBefore(wrap, main);
