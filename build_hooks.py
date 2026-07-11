@@ -78,12 +78,14 @@ def on_page_markdown(markdown, page, config, files):
         "лекцій про сучасну наукову картину світу: від будови матерії та "
         "походження Всесвіту до еволюції життя, свідомості й штучного "
         "інтелекту.\n\n"
-        "## Усі статті\n\n"
+        "<p class=\"section-title\">Усі статті</p>\n\n"
     )
 
     body_parts = []
     for letter in letters:
-        body_parts.append(f"### {letter}\n")
+        # Використовуємо <p> (а не <h3>/###), щоб Material НЕ додавав
+        # ці розділи в автоматичний TOC (лівий/правий сайдбар)
+        body_parts.append(f'<p class="alpha-section">{letter}</p>')
         body_parts.append("\n".join(groups[letter]))
         body_parts.append("")  # порожній рядок між літерами
 

@@ -99,6 +99,26 @@
   text-decoration: underline;
 }
 
+/* Заголовок «Усі статті» на головній (HTML <p>, не потрапляє в TOC) */
+.section-title {
+  font-family: var(--wiki-serif);
+  font-weight: 400;
+  font-size: 1.6em;
+  margin: 1em 0 0.5em 0;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--wiki-border);
+}
+
+/* Алфавітні розділи-покажчики на головній (генеруються як <p>) */
+.alpha-section {
+  font-family: var(--wiki-serif);
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 1.2em 0 0.3em 0;
+  padding-bottom: 0.15em;
+  border-bottom: 1px solid var(--wiki-border);
+}
+
 /* Адаптивність: мобільні пристрої (<=768px) */
 @media (max-width: 768px) {
   .video-embed iframe {
