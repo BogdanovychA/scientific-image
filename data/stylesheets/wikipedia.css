@@ -71,10 +71,13 @@
 
 /* Блок «Випадкові статті» у лівому сайдбарі */
 .random-articles {
-  margin: 0.5em 0.5em 0.5em 0;
-  padding: 0.4em 0.5em;
-  border-top: 1px solid var(--wiki-border);
-  font-size: 0.8em;
+  /* Ідентично правому сайдбару (.md-nav--secondary):
+     той самий розмір шрифту (1rem = 14px), без горизонтальної лінії зверху,
+     без власних відступів (вирівнюємо під Material .md-sidebar__inner) */
+  margin: 0;
+  padding: 0;
+  border-top: none;
+  font-size: 0.7rem;
 }
 .random-articles__title {
   font-weight: 700;
