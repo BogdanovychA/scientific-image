@@ -1,6 +1,6 @@
 ---
 title: "Що таке гравітація з точки зору сучасної науки"
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=lkcx52ZLD5c
 collected: 2026-07-10
 published: Невідомо
 ---

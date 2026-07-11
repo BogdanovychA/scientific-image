@@ -1,6 +1,6 @@
 ---
 title: "Чи можна зменшити атом? Науково-популярна лекція."
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=R81Q-VqMz04
 collected: 2026-07-10
 published: Невідомо
 ---

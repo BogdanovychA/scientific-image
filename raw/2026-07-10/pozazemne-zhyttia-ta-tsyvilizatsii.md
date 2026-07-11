@@ -1,6 +1,6 @@
 ---
 title: "Позаземне життя, позаземний розум та позаземні цивілізації"
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=Rf7_rGLnqwY
 collected: 2026-07-10
 published: Невідомо
 ---

@@ -1,6 +1,6 @@
 ---
 title: "«Я радий вас бачити» або історія одного фотона з наукової точки зору"
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=lGlghMqSfr8
 collected: 2026-07-10
 published: Невідомо
 ---

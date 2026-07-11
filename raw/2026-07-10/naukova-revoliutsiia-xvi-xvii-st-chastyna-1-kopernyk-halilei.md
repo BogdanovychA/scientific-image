@@ -1,6 +1,6 @@
 ---
 title: "Наукова революція XVI–XVII ст. Частина 1. Коперник. Галілей."
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=q-46TomOI5E
 collected: 2026-07-10
 published: Невідомо
 ---

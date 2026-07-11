@@ -1,6 +1,6 @@
 ---
 title: "Сонячна система. Частина 1. Сонце, Меркурій, Венера. Лекція з курсу «Науковий образ світу»"
-source: "Транскрипт лекції з курсу «Науковий образ світу» (YouTube: https://www.youtube.com/watch?v=1FeeR3CJ6iM)"
+source: https://www.youtube.com/watch?v=1FeeR3CJ6iM
 collected: 2026-07-10
 published: Невідомо
 ---

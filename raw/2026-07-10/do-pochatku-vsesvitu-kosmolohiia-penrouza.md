@@ -1,6 +1,6 @@
 ---
 title: "До початку Всесвіту: космологія Пенроуза та її конкуренти"
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=Sbjb2HAhPPc
 collected: 2026-07-10
 published: Невідомо
 ---

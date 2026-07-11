@@ -1,6 +1,6 @@
 ---
 title: "Наукова революція XVI–XVII ст. Частина 2. Ісаак Ньютон."
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=2cM4DQuLt3E
 collected: 2026-07-10
 published: Невідомо
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Сучасна (квантова) картина світу. Лекція з курсу «Науковий образ світу»"
-source: "Транскрипт лекції з курсу «Науковий образ світу» (YouTube: https://www.youtube.com/watch?v=SLaxGslc1rQ)"
+source: https://www.youtube.com/watch?v=SLaxGslc1rQ
 collected: 2026-07-10
 published: Невідомо
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Що таке антиматерія з точки зору сучасної науки. Науково-популярна лекція."
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=uKDzDHEtjWI
 collected: 2026-07-10
 published: Невідомо
 ---

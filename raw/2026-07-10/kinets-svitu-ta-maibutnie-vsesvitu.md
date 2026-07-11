@@ -1,6 +1,6 @@
 ---
 title: "Кінець світу та майбутнє Всесвіту. Науково-популярна лекція."
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=4Zvc8iWxatI
 collected: 2026-07-10
 published: Невідомо
 ---

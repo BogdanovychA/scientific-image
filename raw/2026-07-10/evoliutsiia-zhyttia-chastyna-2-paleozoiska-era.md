@@ -1,6 +1,6 @@
 ---
 title: "Еволюція життя. Частина 2/4. Палеозойська ера"
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=F90lIHQfjPw
 collected: 2026-07-10
 published: Невідомо
 ---

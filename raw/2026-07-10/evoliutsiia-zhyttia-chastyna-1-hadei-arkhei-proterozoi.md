@@ -1,6 +1,6 @@
 ---
 title: "Еволюція життя. Частина 1/4. Гадей, Архей, Протерозой"
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=_-SGRA9eZrg
 collected: 2026-07-10
 published: Невідомо
 ---

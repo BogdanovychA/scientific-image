@@ -1,6 +1,6 @@
 ---
 title: "Чому математика не є наукою"
-source: "Транскрипт лекції з курсу «Науковий образ світу»"
+source: https://www.youtube.com/watch?v=gU9z8LKwOL8
 collected: 2026-07-10
 published: Невідомо
 ---
