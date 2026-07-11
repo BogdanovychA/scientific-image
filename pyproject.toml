@@ -1,0 +1,31 @@
+[project]
+name = "scientific-image"
+version = "0.1.0"
+description = "Scientific Image"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
+]
+dependencies = [
+    "mkdocs==1.6.1",  # mkdocs<2.0.0 !!!
+    "mkdocs-material==9.7.6",
+]
+[dependency-groups]
+dev = [
+    "pre_commit",
+    "ruff",
+]
+#[project.urls]
+#"Homepage" = ""
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "preserve"
