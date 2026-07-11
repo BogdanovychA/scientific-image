@@ -129,9 +129,24 @@
   display: none !important;
 }
 
-/* Адаптивність: мобільні пристрої (<=768px) */
-@media (max-width: 768px) {
-  .video-embed iframe {
-    width: 100%;
-  }
+/* Вбудоване відео на сторінках-джерелах */
+.video-embed {
+  margin: 1.5em 0;
+  max-width: 100%;
+}
+.video-embed iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Центрування футера */
+.md-footer-meta__inner {
+  justify-content: center !important;
+}
+.md-copyright {
+  text-align: center;
+  margin: 0 auto;
 }

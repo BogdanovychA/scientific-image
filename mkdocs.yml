@@ -1,7 +1,10 @@
 site_name: Науковий образ світу
 site_description: База знань курсу «Науковий образ світу»
+copyright: '© 2026 Науковий образ світу'
 docs_dir: data
 site_dir: build
+extra:
+  generator: false
 exclude_docs: |
   wiki/log.md
   AGENTS.md
