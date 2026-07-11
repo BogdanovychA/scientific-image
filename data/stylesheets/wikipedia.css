@@ -114,7 +114,44 @@
   border-radius: 4px;
 }
 
-/* Адаптивність: мобільні пристрої (<=768px) */
+/* Блок «Випадкові статті» у лівому сайдбарі */
+.random-articles {
+  margin: 0.5em 0.5em 0.5em 0;
+  padding: 0.4em 0.5em;
+  border-top: 1px solid var(--wiki-border);
+  font-size: 0.8em;
+}
+.random-articles__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--wiki-muted);
+  margin-bottom: 0.3em;
+}
+.random-articles__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.random-articles__list li {
+  margin: 0.15em 0;
+}
+.random-articles__list a {
+  color: var(--md-typeset-a-color, #1565c0);
+  text-decoration: none;
+}
+.random-articles__list a:hover {
+  text-decoration: underline;
+}
+
+/* Фіксація лівого та правого сайдбарів (завжди видимі при прокрутці) */
+.md-sidebar--primary,
+.md-sidebar--secondary {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
 @media (max-width: 768px) {
   .md-content__inner {
     max-width: 100%;
