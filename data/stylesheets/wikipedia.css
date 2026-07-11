@@ -119,6 +119,13 @@
   border-bottom: 1px solid var(--wiki-border);
 }
 
+/* Лівий сайдбар: приховуємо основне навігаційне меню «Науковий образ світу».
+   Залишаємо лише блок «Випадкові статті» (.random-articles).
+   Правий сайдбар (TOC, .md-nav--secondary) не зачіпається. */
+.md-sidebar--primary .md-nav--primary {
+  display: none !important;
+}
+
 /* Адаптивність: мобільні пристрої (<=768px) */
 @media (max-width: 768px) {
   .video-embed iframe {
