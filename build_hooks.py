@@ -23,7 +23,7 @@ LATIN_MAP = {c: i for i, c in enumerate(LATIN_ALPHABET)}
 
 def _sort_key(label):
     """Ключ сортування для українських, латинських літер та символів.
-    
+
     Сортує в порядку: українські літери -> латинські літери -> інші символи.
     """
     key = []
@@ -79,7 +79,7 @@ def on_page_markdown(markdown, page, config, files):
     # Групування за першою літерою (верхній регістр)
     groups = {}
     for label, target in items:
-        first = (label[0].upper() if label else "#")
+        first = label[0].upper() if label else "#"
         groups.setdefault(first, []).append(f"- [{label}]({target})")
 
     # Порядок літер за алфавітом
@@ -130,3 +130,38 @@ def on_post_build(config):
             f.write(html_content)
     except OSError:
         pass
+
+
+def on_config(config):
+    """Динамічно генеруємо навігаційне меню при збірці."""
+    docs_dir = config["docs_dir"]
+    nav = [{"Головна": "wiki/index.md"}]
+
+    # 1. Статті (wiki/concepts/, wiki/entities/, wiki/archives/)
+    articles = []
+    for category in ("concepts", "entities", "archives"):
+        cat_dir = os.path.join(docs_dir, "wiki", category)
+        if os.path.isdir(cat_dir):
+            for file in sorted(os.listdir(cat_dir)):
+                if file.endswith(".md"):
+                    rel_path = f"wiki/{category}/{file}"
+                    articles.append(rel_path)
+    if articles:
+        nav.append({"Статті": articles})
+
+    # 2. Джерела (raw/**)
+    sources = []
+    raw_dir = os.path.join(docs_dir, "raw")
+    if os.path.isdir(raw_dir):
+        for root, dirs, files in os.walk(raw_dir):
+            for file in files:
+                if file.endswith(".md"):
+                    abs_path = os.path.join(root, file)
+                    rel_path = os.path.relpath(abs_path, docs_dir).replace("\\", "/")
+                    sources.append(rel_path)
+        sources.sort()
+    if sources:
+        nav.append({"Джерела": sources})
+
+    config["nav"] = nav
+    return config
