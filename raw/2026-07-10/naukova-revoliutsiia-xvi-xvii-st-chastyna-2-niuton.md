@@ -2,7 +2,7 @@
 title: "Наукова революція XVI–XVII ст. Частина 2. Ісаак Ньютон."
 source: https://www.youtube.com/watch?v=2cM4DQuLt3E
 collected: 2026-07-10
-published: Невідомо
+published: 2023-12-05
 ---
 
 # Наукова революція XVI–XVII ст. Частина 2. Ісаак Ньютон.

@@ -2,7 +2,7 @@
 title: "Фізика елементарних частинок. Лекція з фізики."
 source: https://www.youtube.com/watch?v=zjJLEvC9Y_s
 collected: 2026-07-10
-published: Невідомо
+published: 2024-05-14
 ---
 
 # Фізика елементарних частинок. Лекція з фізики.

@@ -2,7 +2,7 @@
 title: "Чи можна зменшити атом? Науково-популярна лекція."
 source: https://www.youtube.com/watch?v=R81Q-VqMz04
 collected: 2026-07-10
-published: Невідомо
+published: 2026-06-15
 ---
 
 # Чи можна зменшити атом? Науково-популярна лекція.

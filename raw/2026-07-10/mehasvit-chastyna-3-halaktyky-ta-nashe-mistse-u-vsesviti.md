@@ -2,7 +2,7 @@
 title: "Мегасвіт. Частина 3. Галактики та наше місце у Всесвіті"
 source: https://www.youtube.com/watch?v=i1fIBTPq8hM
 collected: 2026-07-10
-published: Невідомо
+published: 2024-01-27
 ---
 
 

@@ -2,7 +2,7 @@
 title: "Магічні числа Всесвіту. Науково-популярна лекція."
 source: https://www.youtube.com/watch?v=o_qsvsPd1Ck
 collected: 2026-07-10
-published: Невідомо
+published: 2026-06-09
 ---
 
 # Магічні числа Всесвіту. Науково-популярна лекція.

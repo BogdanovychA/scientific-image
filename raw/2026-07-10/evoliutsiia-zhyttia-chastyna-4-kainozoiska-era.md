@@ -2,7 +2,7 @@
 title: "Еволюція життя. Частина 4/4. Кайнозойська ера. Лекція з курсу «Науковий образ світу»"
 source: https://www.youtube.com/watch?v=gcEB4yhzBYI
 collected: 2026-07-10
-published: Невідомо
+published: 2024-04-13
 ---
 
 

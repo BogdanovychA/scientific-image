@@ -2,7 +2,7 @@
 title: "Наука та псевдонаука. Частина 1. Науковий метод. Лекція з курсу «Науковий образ світу»"
 source: https://www.youtube.com/watch?v=YuDOJHzT1Hk
 collected: 2026-07-10
-published: Невідомо
+published: 2023-11-30
 ---
 
 

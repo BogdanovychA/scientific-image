@@ -2,7 +2,7 @@
 title: "Чому математика не є наукою"
 source: https://www.youtube.com/watch?v=gU9z8LKwOL8
 collected: 2026-07-10
-published: Невідомо
+published: 2025-02-14
 ---
 
 # Чому математика не є наукою

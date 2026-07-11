@@ -2,7 +2,7 @@
 title: "Наукова революція XVI–XVII ст. Частина 1. Коперник. Галілей."
 source: https://www.youtube.com/watch?v=q-46TomOI5E
 collected: 2026-07-10
-published: Невідомо
+published: 2023-12-04
 ---
 
 # Наукова революція XVI–XVII ст. Частина 1. Коперник. Галілей.

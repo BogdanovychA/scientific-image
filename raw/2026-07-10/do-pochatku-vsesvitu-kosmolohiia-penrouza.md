@@ -2,7 +2,7 @@
 title: "До початку Всесвіту: космологія Пенроуза та її конкуренти"
 source: https://www.youtube.com/watch?v=Sbjb2HAhPPc
 collected: 2026-07-10
-published: Невідомо
+published: 2026-04-09
 ---
 
 # До початку Всесвіту: космологія Пенроуза та її конкуренти

@@ -2,7 +2,7 @@
 title: "Що таке гравітація з точки зору сучасної науки"
 source: https://www.youtube.com/watch?v=lkcx52ZLD5c
 collected: 2026-07-10
-published: Невідомо
+published: 2026-01-13
 ---
 
 # Що таке гравітація з точки зору сучасної науки

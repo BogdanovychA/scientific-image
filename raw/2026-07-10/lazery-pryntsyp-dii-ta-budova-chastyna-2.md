@@ -2,7 +2,7 @@
 title: "Лазери: принцип дії та будова. Частина 2. Лекція з фізики."
 source: https://www.youtube.com/watch?v=3BYOPIXHYWo
 collected: 2026-07-10
-published: Невідомо
+published: 2024-12-25
 ---
 
 # Лазери: принцип дії та будова. Частина 2. Лекція з фізики.
