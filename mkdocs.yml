@@ -1,6 +1,7 @@
 site_name: Науковий образ світу
 site_description: База знань курсу «Науковий образ світу»
 docs_dir: data
+site_dir: build
 exclude_docs: |
   wiki/log.md
   AGENTS.md

@@ -14,14 +14,27 @@ import re
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 
 
+UKRAINIAN_ALPHABET = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя"
+LATIN_ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+
+UKRAINIAN_MAP = {c: i for i, c in enumerate(UKRAINIAN_ALPHABET)}
+LATIN_MAP = {c: i for i, c in enumerate(LATIN_ALPHABET)}
+
+
 def _sort_key(label):
-    """Ключ сортування: спроба українського локалю, інакше lower()."""
-    import locale
-    try:
-        locale.setlocale(locale.LC_COLLATE, "uk_UA.UTF-8")
-        return locale.strxfrm(label.strip().lower())
-    except (locale.Error, OSError):
-        return label.strip().lower()
+    """Ключ сортування для українських, латинських літер та символів.
+    
+    Сортує в порядку: українські літери -> латинські літери -> інші символи.
+    """
+    key = []
+    for c in label.strip().lower():
+        if c in UKRAINIAN_MAP:
+            key.append((0, UKRAINIAN_MAP[c]))
+        elif c in LATIN_MAP:
+            key.append((1, LATIN_MAP[c]))
+        else:
+            key.append((2, ord(c)))
+    return key
 
 
 def on_page_markdown(markdown, page, config, files):
@@ -60,7 +73,7 @@ def on_page_markdown(markdown, page, config, files):
     if not items:
         return markdown
 
-    # Сортування за алфавітом (українським, якщо доступно)
+    # Сортування за алфавітом
     items.sort(key=lambda x: _sort_key(x[0]))
 
     # Групування за першою літерою (верхній регістр)
@@ -90,3 +103,30 @@ def on_page_markdown(markdown, page, config, files):
         body_parts.append("")  # порожній рядок між літерами
 
     return header + "\n".join(body_parts) + "\n"
+
+
+def on_post_build(config):
+    """Генеруємо файл index.html в корені папки site для редіректу на wiki/."""
+    site_dir = config.get("site_dir", "site")
+    index_path = os.path.join(site_dir, "index.html")
+
+    html_content = (
+        '<!DOCTYPE html>\n'
+        '<html lang="uk">\n'
+        '<head>\n'
+        '  <meta charset="utf-8">\n'
+        '  <title>Науковий образ світу</title>\n'
+        '  <meta http-equiv="refresh" content="0; url=wiki/">\n'
+        '  <script>window.location.replace("wiki/")</script>\n'
+        '</head>\n'
+        '<body>\n'
+        '  <p>Завантаження... Якщо вас не перенаправило автоматично, <a href="wiki/">перейдіть за цим посиланням</a>.</p>\n'
+        '</body>\n'
+        '</html>\n'
+    )
+
+    try:
+        with open(index_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+    except OSError:
+        pass

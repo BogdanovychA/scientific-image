@@ -1,3 +1,7 @@
+######## MkDocs build artifacts #######
+build/
+screenshots/
+
 # Projects
 .obsidian
 
@@ -117,6 +121,3 @@ lerna-debug.log*
 
 # TypeScript cache
 *.tsbuildinfo
-######## MkDocs build artifacts #######
-site/
-screenshots/

@@ -20,12 +20,13 @@
   //   "../antymateriia/"      (з іншої статті — Material опускає каталог)
   //   "raw/.../"              (ДЖЕРЕЛО — виключаємо)
   //   "#anchor" / "wiki/index" (навігаційні — виключаємо)
-  function isArticle(href) {
+  function isArticle(a) {
+    var href = a.href;
     if (!href) return false;
     if (/raw\//.test(href)) return false;   // джерела
-    if (/#/.test(href)) return false;       // якорі
+    if (/#/.test(a.getAttribute("href") || "")) return false; // якорі
     if (/index/.test(href)) return false;   // головна
-    return /\/$/.test(href);                 // сторінка вікі (закінч. на /)
+    return /\/(concepts|entities|archives)\//.test(href);     // сторінка вікі
   }
 
   function buildRandom() {
@@ -34,7 +35,7 @@
 
     var all = Array.prototype.slice.call(nav.querySelectorAll("a"));
     var links = all.filter(function (a) {
-      return isArticle(a.getAttribute("href"));
+      return isArticle(a);
     });
     if (!links.length) return;
 
