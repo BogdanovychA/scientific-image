@@ -1,0 +1,131 @@
+/* wikipedia.css — Вікіпедія-стиль для сайту «Науковий образ світу».
+   Новий файл стилів (не модифікація вихідних даних). */
+
+:root {
+  --wiki-serif: "Linux Libertine", "Georgia", "Times New Roman", serif;
+  --wiki-border: #a2a9b1;
+  --wiki-header-bg: #eaecf0;
+  --wiki-muted: #54595d;
+  --wiki-box-bg: #f8f9fa;
+}
+
+/* Тіло та основна колонка контенту: обмежена ширина ~860px, вирівнювання ліворуч */
+.md-content__inner {
+  max-width: 860px;
+  margin-left: 0;
+  margin-right: auto;
+  font-family: var(--wiki-serif);
+}
+
+.md-typeset {
+  font-family: var(--wiki-serif);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--wiki-serif);
+  font-weight: 400;
+  border-bottom: 1px solid var(--wiki-border);
+  padding-bottom: 0.25em;
+}
+
+/* Таблиці у статтях — стиль Вікіпедії */
+.md-typeset table:not([class]) {
+  border-collapse: collapse;
+  font-size: 0.85em;
+}
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  border: 1px solid var(--wiki-border);
+  padding: 4px 8px;
+}
+.md-typeset table:not([class]) th {
+  background: var(--wiki-header-bg);
+  text-align: left;
+}
+
+/* Infobox для концепцій/сутностей — плаваючий блок праворуч */
+.infobox {
+  float: right;
+  clear: right;
+  width: 280px;
+  margin: 0 0 1em 1em;
+  border: 1px solid var(--wiki-border);
+  background: var(--wiki-box-bg);
+  font-size: 0.85em;
+  padding: 0.5em 0.8em;
+  border-radius: 2px;
+}
+.infobox-title {
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid var(--wiki-border);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.4em;
+}
+.infobox div {
+  margin: 0.2em 0;
+}
+.infobox span {
+  color: var(--wiki-muted);
+  margin-right: 0.4em;
+}
+.infobox-tags {
+  margin-top: 0.4em;
+}
+
+/* Сторінка-джерело: приховуємо оригінальний H1 (замінено на .raw-title) */
+.raw-source .md-content__inner > h1:not(.raw-title) {
+  display: none;
+}
+.raw-title {
+  font-family: var(--wiki-serif);
+  font-weight: 400;
+  border-bottom: 1px solid var(--wiki-border);
+  padding-bottom: 0.25em;
+  margin-bottom: 0.5em;
+}
+/* Кнопка «← На головну» */
+.home-link {
+  margin: 0 0 1em 0;
+}
+.home-link a {
+  display: inline-block;
+  font-size: 0.85em;
+  color: var(--wiki-muted);
+  text-decoration: none;
+  border: 1px solid var(--wiki-border);
+  border-radius: 3px;
+  padding: 2px 8px;
+}
+.home-link a:hover {
+  background: var(--wiki-box-bg);
+}
+.video-embed {
+  margin: 1em 0;
+}
+.video-embed iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 4px;
+}
+
+/* Адаптивність: мобільні пристрої (<=768px) */
+@media (max-width: 768px) {
+  .md-content__inner {
+    max-width: 100%;
+    padding: 0 1em;
+  }
+  .infobox {
+    float: none;
+    width: auto;
+    margin: 1em 0;
+  }
+  .video-embed iframe {
+    width: 100%;
+  }
+}

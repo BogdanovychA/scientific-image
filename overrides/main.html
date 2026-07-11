@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if 'source' in page.meta %}
+    {# Сторінка-джерело (raw): заголовок → відео → опубліковано → текст #}
+    <article class="md-content__inner raw-source">
+      <h1 class="raw-title">{{ page.meta.title }}</h1>
+      {% if page.meta.source and 'youtube' in page.meta.source %}
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/{{ page.meta.source | replace('https://www.youtube.com/watch?v=','') | replace('https://youtu.be/','') }}"
+                title="Відео" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      {% endif %}
+      {% if page.meta.published %}
+      <p class="raw-published"><strong>Опубліковано:</strong> {{ page.meta.published }}</p>
+      {% endif %}
+      {% if not page.is_homepage %}
+      <p class="home-link"><a href="{{ base_url }}/">← На головну</a></p>
+      {% endif %}
+      {{ super() }}   {# містить оригінальний H1 — приховано через CSS .raw-source h1:not(.raw-title) #}
+    </article>
+  {% else %}
+    {# Вікі-стаття: лише контент + кнопка «На головну» #}
+    <article class="md-content__inner wiki-article">
+      {% if not page.is_homepage %}
+      <p class="home-link"><a href="{{ base_url }}/">← На головну</a></p>
+      {% endif %}
+      {{ super() }}
+    </article>
+  {% endif %}
+{% endblock %}
