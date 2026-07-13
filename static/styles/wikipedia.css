@@ -1,0 +1,170 @@
+/* wikipedia.css — Вікіпедія-стиль для сайту «Науковий образ світу».
+   НОВИЙ файл стилів (не модифікація вихідних даних). */
+
+:root {
+  --wiki-serif: "Linux Libertine", "Georgia", "Times New Roman", serif;
+  --wiki-border: #a2a9b1;
+  --wiki-header-bg: #eaecf0;
+  --wiki-muted: #54595d;
+  --wiki-box-bg: #f8f9fa;
+}
+
+/* Тіло та основна колонка контенту: серіфний шрифт */
+.md-typeset {
+  font-family: var(--wiki-serif);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--wiki-serif);
+  font-weight: 400;
+  border-bottom: 1px solid var(--wiki-border);
+  padding-bottom: 0.25em;
+}
+
+/* Таблиці у статтях — стиль Вікіпедії */
+.md-typeset table:not([class]) {
+  border-collapse: collapse;
+  font-size: 0.85em;
+}
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  border: 1px solid var(--wiki-border);
+  padding: 4px 8px;
+}
+.md-typeset table:not([class]) th {
+  background: var(--wiki-header-bg);
+  text-align: left;
+}
+
+/* Сторінка-джерело: приховуємо оригінальний H1 (замінено на .raw-title) */
+.raw-source h1:not(.raw-title) {
+  display: none !important;
+}
+.raw-title {
+  font-family: var(--wiki-serif);
+  font-weight: 400;
+  border-bottom: 1px solid var(--wiki-border);
+  padding-bottom: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+/* Кнопка «← На головну» */
+.home-link {
+  margin: 0 0 1em 0;
+}
+.home-link a {
+  display: inline-block;
+  font-size: 0.85em;
+  color: var(--wiki-muted);
+  text-decoration: none;
+  border: 1px solid var(--wiki-border);
+  border-radius: 3px;
+  padding: 2px 8px;
+}
+.home-link a:hover {
+  background: var(--wiki-box-bg);
+}
+
+/* Блок «Випадкові статті» у лівому сайдбарі */
+.random-articles {
+  /* Ідентично правому сайдбару (.md-nav--secondary):
+     той самий розмір шрифту (1rem = 14px), без горизонтальної лінії зверху,
+     без власних відступів (вирівнюємо під Material .md-sidebar__inner) */
+  margin: 0;
+  padding: 0;
+  border-top: none;
+  font-size: 0.7rem;
+}
+.random-articles__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--wiki-muted);
+  margin-bottom: 0.3em;
+}
+.random-articles__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.random-articles__list li {
+  margin: 0.15em 0;
+}
+.random-articles__list a {
+  color: var(--md-typeset-a-color, #1565c0);
+  text-decoration: none;
+}
+.random-articles__list a:hover {
+  text-decoration: underline;
+}
+
+/* Заголовок «Усі статті» на головній (HTML <p>, не потрапляє в TOC) */
+.section-title {
+  font-family: var(--wiki-serif);
+  font-weight: 400;
+  font-size: 1.6em;
+  margin: 1em 0 0.5em 0;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--wiki-border);
+}
+
+/* Алфавітні розділи-покажчики на головній (генеруються як <p>) */
+.alpha-section {
+  font-family: var(--wiki-serif);
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 1.2em 0 0.3em 0;
+  padding-bottom: 0.15em;
+  border-bottom: 1px solid var(--wiki-border);
+}
+
+/* Лівий сайдбар: приховуємо основне навігаційне меню «Науковий образ світу».
+   Залишаємо лише блок «Випадкові статті» (.random-articles).
+   Правий сайдбар (TOC, .md-nav--secondary) не зачіпається. */
+.md-sidebar--primary .md-nav--primary {
+  display: none !important;
+}
+
+/* Вбудоване відео на сторінках-джерелах */
+.video-embed {
+  margin: 1.5em 0;
+  max-width: 100%;
+}
+.video-embed iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Центрування футера */
+.md-footer-meta__inner {
+  justify-content: center !important;
+}
+.md-copyright {
+  text-align: center;
+  margin: 0 auto;
+}
+.md-copyright a {
+  color: inherit;
+  text-decoration: none;
+}
+.md-copyright a:hover {
+  text-decoration: underline;
+}
+.md-footer-note p {
+  margin: 0;
+  padding: 0;
+}
+.md-footer-note a {
+  color: inherit;
+  text-decoration: underline;
+}
+.md-footer-note a:hover {
+  color: var(--md-typeset-a-color, #1565c0);
+}
