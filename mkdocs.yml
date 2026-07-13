@@ -47,6 +47,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.details
 extra_css:
-  - stylesheets/wikipedia.css
+  - static/styles/wikipedia.css
 extra_javascript:
-  - scripts/random-articles.js
+  - static/scripts/random-articles.js
