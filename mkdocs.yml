@@ -1,3 +1,4 @@
+site_url: https://scientific-image.bogdanovych.org
 site_name: Науковий образ світу
 site_description: База знань курсу «Науковий образ світу»
 copyright: '<a href="/pages/about/">© 2026 Науковий образ світу</a>'
@@ -5,6 +6,9 @@ docs_dir: data
 site_dir: build
 extra:
   generator: false
+  analytics:
+    provider: google
+    property: G-XZVQVKJPNK
 exclude_docs: |
   wiki/log.md
   AGENTS.md
