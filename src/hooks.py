@@ -193,5 +193,13 @@ def on_config(config):
     if sources:
         nav.append({CONFIG["navigation"]["sources_title"]: sources})
 
+    # 3. Інформаційні сторінки (pages/**)
+    pages_dir = os.path.join(docs_dir, "pages")
+    if os.path.isdir(pages_dir):
+        for file in sorted(os.listdir(pages_dir)):
+            if file.endswith(".md"):
+                rel_path = f"pages/{file}"
+                nav.append(rel_path)
+
     config["nav"] = nav
     return config

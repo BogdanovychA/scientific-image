@@ -50,3 +50,4 @@ extra_css:
   - static/styles/wikipedia.css
 extra_javascript:
   - static/scripts/random-articles.js
+  - static/scripts/external-links.js

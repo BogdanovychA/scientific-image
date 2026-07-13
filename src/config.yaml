@@ -10,6 +10,7 @@ navigation:
   home_title: "Головна"
   articles_title: "Статті"
   sources_title: "Джерела"
+  about_title: "Про проєкт"
 
 # Шаблони форматування алфавітного покажчика
 templates:
