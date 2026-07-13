@@ -16,8 +16,11 @@ dev = [
     "pre_commit",
     "ruff",
 ]
-#[project.urls]
-#"Homepage" = ""
+[project.urls]
+"Homepage" = "https://www.bogdanovych.org"
+"Website" = "https://scientific-image.bogdanovych.org"
+"Repository" = "https://github.com/BogdanovychA/scientific-image"
+"Bug Tracker" = "https://github.com/BogdanovychA/scientific-image/issues"
 
 [tool.ruff]
 line-length = 88
