@@ -10,12 +10,29 @@
 import os
 import re
 
+import yaml
+
+HOOKS_DIR = os.path.dirname(__file__)
+
+# Завантажуємо конфігурацію
+CONFIG_PATH = os.path.join(HOOKS_DIR, "config.yaml")
+with open(CONFIG_PATH, encoding="utf-8") as fh:
+    CONFIG = yaml.safe_load(fh)
+
+# Завантажуємо шаблони
+HEADER_PATH = os.path.join(HOOKS_DIR, "templates", "main_page_header.md")
+with open(HEADER_PATH, encoding="utf-8") as fh:
+    HEADER_TEMPLATE = fh.read()
+
+REDIRECT_PATH = os.path.join(HOOKS_DIR, "templates", "redirect.html")
+with open(REDIRECT_PATH, encoding="utf-8") as fh:
+    REDIRECT_TEMPLATE = fh.read()
+
 # Посилання вигляду [Текст](шлях)
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 
-
-UKRAINIAN_ALPHABET = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя"
-LATIN_ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+UKRAINIAN_ALPHABET = CONFIG["alphabets"]["ukrainian"]
+LATIN_ALPHABET = CONFIG["alphabets"]["latin"]
 
 UKRAINIAN_MAP = {c: i for i, c in enumerate(UKRAINIAN_ALPHABET)}
 LATIN_MAP = {c: i for i, c in enumerate(LATIN_ALPHABET)}
@@ -105,27 +122,28 @@ def on_page_markdown(markdown, page, config, files):
     for label, target, desc in items:
         first = label[0].upper() if label else "#"
         if desc:
-            groups.setdefault(first, []).append(f"- [{label}]({target}) — {desc}")
+            groups.setdefault(first, []).append(
+                CONFIG["templates"]["list_item_with_desc"].format(
+                    label=label, target=target, desc=desc
+                )
+            )
         else:
-            groups.setdefault(first, []).append(f"- [{label}]({target})")
+            groups.setdefault(first, []).append(
+                CONFIG["templates"]["list_item_no_desc"].format(
+                    label=label, target=target
+                )
+            )
 
     # Порядок літер за алфавітом
     letters = sorted(groups.keys(), key=_sort_key)
 
-    header = (
-        "# Науковий образ світу\n\n"
-        "База знань курсу «Науковий образ світу» — серія науково-популярних "
-        "лекцій про сучасну наукову картину світу: від будови матерії та "
-        "походження Всесвіту до еволюції життя, свідомості й штучного "
-        "інтелекту.\n\n"
-        "<p class=\"section-title\">Усі статті</p>\n\n"
-    )
+    header = HEADER_TEMPLATE.rstrip() + "\n\n"
 
     body_parts = []
     for letter in letters:
         # Використовуємо <p> (а не <h3>/###), щоб Material НЕ додавав
         # ці розділи в автоматичний TOC (лівий/правий сайдбар)
-        body_parts.append(f'<p class="alpha-section">{letter}</p>')
+        body_parts.append(CONFIG["templates"]["letter_section"].format(letter=letter))
         body_parts.append("\n".join(groups[letter]))
         body_parts.append("")  # порожній рядок між літерами
 
@@ -137,24 +155,9 @@ def on_post_build(config):
     site_dir = config.get("site_dir", "site")
     index_path = os.path.join(site_dir, "index.html")
 
-    html_content = (
-        '<!DOCTYPE html>\n'
-        '<html lang="uk">\n'
-        '<head>\n'
-        '  <meta charset="utf-8">\n'
-        '  <title>Науковий образ світу</title>\n'
-        '  <meta http-equiv="refresh" content="0; url=wiki/">\n'
-        '  <script>window.location.replace("wiki/")</script>\n'
-        '</head>\n'
-        '<body>\n'
-        '  <p>Завантаження... Якщо вас не перенаправило автоматично, <a href="wiki/">перейдіть за цим посиланням</a>.</p>\n'
-        '</body>\n'
-        '</html>\n'
-    )
-
     try:
         with open(index_path, "w", encoding="utf-8") as f:
-            f.write(html_content)
+            f.write(REDIRECT_TEMPLATE)
     except OSError:
         pass
 
@@ -162,7 +165,7 @@ def on_post_build(config):
 def on_config(config):
     """Динамічно генеруємо навігаційне меню при збірці."""
     docs_dir = config["docs_dir"]
-    nav = [{"Головна": "wiki/index.md"}]
+    nav = [{CONFIG["navigation"]["home_title"]: "wiki/index.md"}]
 
     # 1. Статті (wiki/concepts/, wiki/entities/, wiki/archives/)
     articles = []
@@ -174,7 +177,7 @@ def on_config(config):
                     rel_path = f"wiki/{category}/{file}"
                     articles.append(rel_path)
     if articles:
-        nav.append({"Статті": articles})
+        nav.append({CONFIG["navigation"]["articles_title"]: articles})
 
     # 2. Джерела (raw/**)
     sources = []
@@ -188,7 +191,7 @@ def on_config(config):
                     sources.append(rel_path)
         sources.sort()
     if sources:
-        nav.append({"Джерела": sources})
+        nav.append({CONFIG["navigation"]["sources_title"]: sources})
 
     config["nav"] = nav
     return config

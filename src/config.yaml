@@ -1,0 +1,18 @@
+# Конфігурація для Python-хуків збірки сайту
+
+# Алфавіти для сортування покажчика
+alphabets:
+  ukrainian: "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя"
+  latin: "abcdefghijklmnopqrstuvwxyz"
+
+# Назви розділів навігації
+navigation:
+  home_title: "Головна"
+  articles_title: "Статті"
+  sources_title: "Джерела"
+
+# Шаблони форматування алфавітного покажчика
+templates:
+  letter_section: '<p class="alpha-section">{letter}</p>'
+  list_item_with_desc: '- [{label}]({target}) — {desc}'
+  list_item_no_desc: '- [{label}]({target})'
