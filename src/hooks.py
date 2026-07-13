@@ -9,6 +9,7 @@
 
 import os
 import re
+from urllib.parse import urlparse
 
 import markdown
 import yaml
@@ -157,15 +158,28 @@ def on_page_markdown(markdown, page, config, files):
 
 
 def on_post_build(config):
-    """Генеруємо файл index.html в корені папки site для редіректу на wiki/."""
+    """Генеруємо файл index.html та CNAME в корені папки site."""
     site_dir = config.get("site_dir", "site")
     index_path = os.path.join(site_dir, "index.html")
 
+    # 1. Редірект на wiki/
     try:
         with open(index_path, "w", encoding="utf-8") as f:
             f.write(REDIRECT_TEMPLATE)
     except OSError:
         pass
+
+    # 2. Файл CNAME на основі site_url
+    site_url = config.get("site_url")
+    if site_url:
+        domain = urlparse(site_url).netloc
+        if domain:
+            cname_path = os.path.join(site_dir, "CNAME")
+            try:
+                with open(cname_path, "w", encoding="utf-8") as f:
+                    f.write(domain)
+            except OSError:
+                pass
 
 
 def on_config(config):
