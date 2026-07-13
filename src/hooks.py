@@ -214,4 +214,5 @@ def on_config(config):
 def on_page_context(context, page, config, **kwargs):
     """Додаємо шаблонне повідомлення у футер усіх сторінок."""
     context["footer_note"] = FOOTER_NOTE_HTML
+    context["about_page_path"] = CONFIG["navigation"]["about_page_path"]
     return context

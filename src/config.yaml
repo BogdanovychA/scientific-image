@@ -11,6 +11,7 @@ navigation:
   articles_title: "Статті"
   sources_title: "Джерела"
   about_title: "Про проєкт"
+  about_page_path: "pages/about/"
 
 # Шаблони форматування алфавітного покажчика
 templates:

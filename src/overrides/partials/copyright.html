@@ -1,7 +1,7 @@
 <div class="md-copyright">
   {% if config.copyright %}
     <div class="md-copyright__highlight">
-      {{ config.copyright }}
+      <a href="{{ about_page_path | url }}">{{ config.copyright }}</a>
     </div>
   {% endif %}
   {% if footer_note %}
