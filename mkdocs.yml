@@ -15,6 +15,7 @@ exclude_docs: |
   raw/assets/**
 theme:
   name: material
+  favicon: static/images/favicon.png
   language: uk
   palette:
     - scheme: default
