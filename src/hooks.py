@@ -55,20 +55,44 @@ def on_page_markdown(markdown, page, config, files):
 
     items = []
     seen = set()
-    for label, target in LINK_RE.findall(text):
-        target = target.split("#")[0].strip()
-        if not target:
-            continue
-        if target.startswith(("http://", "https://", "mailto:")):
-            continue
-        parts = target.split("/")
-        category = parts[0]
-        if category in ("concepts", "entities", "archives"):
-            key = (label.strip(), target)
-            if key in seen:
+    for line in text.splitlines():
+        line_stripped = line.strip()
+        desc = ""
+        # Якщо рядок схожий на рядок таблиці (починається і закінчується на '|')
+        if line_stripped.startswith("|") and line_stripped.endswith("|"):
+            parts = [p.strip() for p in line_stripped.split("|")]
+            # Структура таблиці: | Посилання | Опис | Дата | ...
+            # parts має містити як мінімум 4 елементи: ['', посилання, опис, дата, ...]
+            if len(parts) >= 4:
+                cell_link = parts[1]
+                match = LINK_RE.search(cell_link)
+                if match:
+                    label = match.group(1).strip()
+                    target = match.group(2).split("#")[0].strip()
+                    desc = parts[2].strip()
+                    if not target or target.startswith(
+                        ("http://", "https://", "mailto:")
+                    ):
+                        continue
+                    cat = target.split("/")[0]
+                    if cat in ("concepts", "entities", "archives"):
+                        key = (label, target)
+                        if key not in seen:
+                            seen.add(key)
+                            items.append((label, target, desc))
+                    continue
+
+        # Звичайний пошук посилань у рядку для сумісності
+        for label, target in LINK_RE.findall(line):
+            target = target.split("#")[0].strip()
+            if not target or target.startswith(("http://", "https://", "mailto:")):
                 continue
-            seen.add(key)
-            items.append((label.strip(), target))
+            cat = target.split("/")[0]
+            if cat in ("concepts", "entities", "archives"):
+                key = (label.strip(), target)
+                if key not in seen:
+                    seen.add(key)
+                    items.append((label.strip(), target, ""))
 
     if not items:
         return markdown
@@ -78,9 +102,12 @@ def on_page_markdown(markdown, page, config, files):
 
     # Групування за першою літерою (верхній регістр)
     groups = {}
-    for label, target in items:
+    for label, target, desc in items:
         first = label[0].upper() if label else "#"
-        groups.setdefault(first, []).append(f"- [{label}]({target})")
+        if desc:
+            groups.setdefault(first, []).append(f"- [{label}]({target}) — {desc}")
+        else:
+            groups.setdefault(first, []).append(f"- [{label}]({target})")
 
     # Порядок літер за алфавітом
     letters = sorted(groups.keys(), key=_sort_key)
