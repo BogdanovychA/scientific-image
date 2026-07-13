@@ -150,3 +150,21 @@
   text-align: center;
   margin: 0 auto;
 }
+.md-copyright a {
+  color: inherit;
+  text-decoration: none;
+}
+.md-copyright a:hover {
+  text-decoration: underline;
+}
+.md-footer-note p {
+  margin: 0;
+  padding: 0;
+}
+.md-footer-note a {
+  color: inherit;
+  text-decoration: underline;
+}
+.md-footer-note a:hover {
+  color: var(--md-typeset-a-color, #1565c0);
+}

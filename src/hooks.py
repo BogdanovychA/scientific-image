@@ -10,6 +10,7 @@
 import os
 import re
 
+import markdown
 import yaml
 
 HOOKS_DIR = os.path.dirname(__file__)
@@ -27,6 +28,11 @@ with open(HEADER_PATH, encoding="utf-8") as fh:
 REDIRECT_PATH = os.path.join(HOOKS_DIR, "templates", "redirect.html")
 with open(REDIRECT_PATH, encoding="utf-8") as fh:
     REDIRECT_TEMPLATE = fh.read()
+
+FOOTER_NOTE_PATH = os.path.join(HOOKS_DIR, "templates", "footer_note.md")
+with open(FOOTER_NOTE_PATH, encoding="utf-8") as fh:
+    FOOTER_NOTE_RAW = fh.read()
+FOOTER_NOTE_HTML = markdown.markdown(FOOTER_NOTE_RAW).strip()
 
 # Посилання вигляду [Текст](шлях)
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
@@ -203,3 +209,9 @@ def on_config(config):
 
     config["nav"] = nav
     return config
+
+
+def on_page_context(context, page, config, **kwargs):
+    """Додаємо шаблонне повідомлення у футер усіх сторінок."""
+    context["footer_note"] = FOOTER_NOTE_HTML
+    return context
