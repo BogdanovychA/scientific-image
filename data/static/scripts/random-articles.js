@@ -59,15 +59,23 @@
       wrap.appendChild(list);
 
       // Вставляємо НАД основною навігацією (на початок лівого сайдбару),
-      // щоб блок був завжди видимий зверху без прокрутки
-      var sidebar =
-        document.querySelector(".md-sidebar--primary") ||
-        document.querySelector(".md-sidebar");
-      if (sidebar) {
-        sidebar.insertBefore(wrap, sidebar.firstElementChild);
+      // щоб блок був завжди видимий зверху без прокрутки.
+      // Спочатку пробуємо вставити всередину .md-sidebar__inner, щоб на мобільних пристроях
+      // у меню-бургері посилання залишалися клікабельними (оскільки сам сайдбар має pointer-events: none).
+      var inner = document.querySelector(".md-sidebar--primary .md-sidebar__inner") ||
+                  document.querySelector(".md-sidebar__inner");
+      if (inner) {
+        inner.insertBefore(wrap, inner.firstElementChild);
       } else {
-        var main = document.querySelector(".md-main");
-        if (main && main.parentNode) main.parentNode.insertBefore(wrap, main);
+        var sidebar =
+          document.querySelector(".md-sidebar--primary") ||
+          document.querySelector(".md-sidebar");
+        if (sidebar) {
+          sidebar.insertBefore(wrap, sidebar.firstElementChild);
+        } else {
+          var main = document.querySelector(".md-main");
+          if (main && main.parentNode) main.parentNode.insertBefore(wrap, main);
+        }
       }
     }
 
