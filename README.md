@@ -9,3 +9,8 @@
   ```bash
   uv run mkdocs build
   ```
+
+**Деплой на Github Pages**:
+  ```bash
+  uv run mkdocs gh-deploy
+  ```
