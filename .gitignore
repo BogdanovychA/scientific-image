@@ -2,9 +2,6 @@
 build/
 screenshots/
 
-# Projects
-.obsidian
-
 ### Agents
 #.agents/
 .antigravitycli/
