@@ -32,7 +32,7 @@ theme:
     - navigation.top
     - content.code.copy
     - search.suggest
-  custom_dir: overrides
+  custom_dir: src/overrides
 hooks:
   - src/hooks.py
 markdown_extensions:
