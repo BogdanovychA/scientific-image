@@ -16,5 +16,5 @@ navigation:
 # Шаблони форматування алфавітного покажчика
 templates:
   letter_section: '<p class="alpha-section">{letter}</p>'
-  list_item_with_desc: '- [{label}]({target}) — {desc}'
-  list_item_no_desc: '- [{label}]({target})'
+  list_item_with_desc: '- <span class="article-title">[{label}]({target})</span><span class="article-desc">{desc}</span>'
+  list_item_no_desc: '- <span class="article-title">[{label}]({target})</span>'

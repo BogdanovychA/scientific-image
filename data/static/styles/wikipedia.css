@@ -9,6 +9,13 @@
   --wiki-box-bg: #f8f9fa;
 }
 
+[data-md-color-scheme="slate"] {
+  --wiki-border: #3b3e43;
+  --wiki-header-bg: #27292d;
+  --wiki-muted: #959ba2;
+  --wiki-box-bg: #27292d;
+}
+
 /* Тіло та основна колонка контенту: серіфний шрифт */
 .md-typeset {
   font-family: var(--wiki-serif);
@@ -120,6 +127,34 @@
   margin: 1.2em 0 0.3em 0;
   padding-bottom: 0.15em;
   border-bottom: 1px solid var(--wiki-border);
+}
+
+/* Список статей під алфавітними розділами */
+.alpha-section + ul {
+  list-style: none; /* прибираємо стандартні маркери */
+  padding-left: 0;
+  margin-top: 0.6em;
+  margin-bottom: 1.8em;
+}
+
+.alpha-section + ul li {
+  margin-bottom: 1.2em; /* більший відступ між статтями */
+  padding-left: 0;
+}
+
+/* Назва статті */
+.alpha-section + ul li .article-title {
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+/* Опис статті (на новому рядку, злегка приглушений) */
+.alpha-section + ul li .article-desc {
+  display: block;
+  font-size: 0.88em;
+  color: var(--wiki-muted);
+  line-height: 1.5;
+  margin-top: 0.15em;
 }
 
 /* Лівий сайдбар: приховуємо основне навігаційне меню «Науковий образ світу».
