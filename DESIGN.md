@@ -112,6 +112,12 @@ This design system serves an academic knowledge base centered on scientific conc
 - **Headers (th)**: Background `var(--wiki-header-bg)`, text-align `left`
 - **Zebra Striping**: Even rows (`tr:nth-child(even)`) use background color `var(--wiki-box-bg)`
 
+### Article Portrait Images (`.wiki-article--person img:first-of-type`, `.portrait`, `.wiki-portrait`)
+- **Layout**: Float to the right (`float: right; clear: right;`), width `100%`, max-width `230px`, height `auto`
+- **Margins & Spacing**: Left margin `20px` to separate from paragraph text, bottom margin `16px`
+- **Border & Background**: Thin border `1px solid var(--wiki-border)`, padded `4px`, background `var(--wiki-box-bg)` (no shadows, flat style elevation 0/1)
+- **Responsive / Mobile Grid Collapsing**: Below `768px`, float is disabled (`float: none`), image is centered (`margin: 0 auto 16px auto`), and max-width relaxes to `280px`
+
 ---
 
 ## 5. Layout & Spacing Principles

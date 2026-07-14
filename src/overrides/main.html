@@ -55,7 +55,7 @@
     </article>
   {% else %}
     {# Вікі-стаття: лише контент + кнопка «На головну» зверху #}
-    <article class="md-content__inner wiki-article">
+    <article class="md-content__inner wiki-article{% if 'entities/' in page.url or (page.meta and page.meta.tags and 'person' in page.meta.tags) %} wiki-article--person{% endif %}">
       {% if page.url != 'wiki/' %}
       <p class="home-link"><a href="{{ base_url }}/">← На головну</a></p>
       {% endif %}

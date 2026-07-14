@@ -273,3 +273,31 @@
 [data-md-color-scheme="slate"] .md-typeset .md-admonition {
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
+
+/* Стилі для портретів людей (окремої особи) на відповідних сторінках */
+.wiki-article--person img:first-of-type,
+.md-typeset img.portrait,
+.md-typeset img.wiki-portrait {
+  float: right;
+  clear: right;
+  max-width: 230px;
+  width: 100%;
+  height: auto;
+  margin: 0 0 16px 20px;
+  border: 1px solid var(--wiki-border);
+  padding: 4px;
+  background-color: var(--wiki-box-bg);
+  box-shadow: none; /* Відповідно до DESIGN.md, без тіней */
+}
+
+/* Адаптивність для мобільних екранів */
+@media screen and (max-width: 767.98px) {
+  .wiki-article--person img:first-of-type,
+  .md-typeset img.portrait,
+  .md-typeset img.wiki-portrait {
+    float: none;
+    display: block;
+    margin: 0 auto 16px auto;
+    max-width: 280px;
+  }
+}
