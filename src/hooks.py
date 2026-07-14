@@ -144,7 +144,15 @@ def on_page_markdown(markdown, page, config, files):
     # Порядок літер за алфавітом
     letters = sorted(groups.keys(), key=_sort_key)
 
-    header = HEADER_TEMPLATE.rstrip() + "\n\n"
+    # Генеруємо алфавітну навігацію
+    nav_links = []
+    for letter in letters:
+        nav_links.append(CONFIG["templates"]["alpha_nav_link"].format(letter=letter))
+    alpha_nav = CONFIG["templates"]["alpha_nav_wrapper"].format(
+        links=" ".join(nav_links)
+    )
+
+    header = HEADER_TEMPLATE.rstrip() + "\n\n" + alpha_nav + "\n\n"
 
     body_parts = []
     for letter in letters:

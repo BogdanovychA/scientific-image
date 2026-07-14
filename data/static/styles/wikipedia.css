@@ -207,3 +207,69 @@
 .md-footer-note a:hover {
   color: var(--md-typeset-a-color, #1565c0);
 }
+
+/* Алфавітна швидка навігація */
+.alpha-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 1.2em 0;
+  padding: 8px 12px;
+  background-color: var(--wiki-box-bg);
+  border: 1px solid var(--wiki-border);
+  border-radius: 4px;
+}
+
+.alpha-nav-link {
+  display: inline-block;
+  min-width: 28px;
+  height: 28px;
+  line-height: 26px;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-family: var(--wiki-serif);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--md-typeset-a-color, #1565c0);
+  transition: all 0.15s ease-in-out;
+}
+
+.alpha-nav-link:hover {
+  background-color: var(--wiki-header-bg);
+  border-color: var(--wiki-border);
+  text-decoration: none !important;
+}
+
+/* Зебра-розфарбування рядків таблиці */
+.md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: var(--wiki-box-bg);
+}
+
+/* Наукові цитати (blockquote) */
+.md-typeset blockquote {
+  background-color: var(--wiki-box-bg);
+  border-left: 4px solid var(--wiki-border);
+  padding: 0.5em 1.2em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--wiki-muted);
+  border-radius: 0 4px 4px 0;
+}
+.md-typeset blockquote p {
+  margin: 0.4em 0;
+}
+
+/* Пом'якшення блоків приміток (Admonitions) */
+.md-typeset .admonition,
+.md-typeset .md-admonition {
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-left: 0.2rem solid var(--md-admonition-icon-color) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset .md-admonition {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
