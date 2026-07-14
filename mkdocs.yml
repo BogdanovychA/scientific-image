@@ -16,7 +16,6 @@ exclude_docs: |
   .agents/**
   templates/**
   inbox/**
-  raw/assets/**
 theme:
   name: material
   favicon: static/images/favicon.png
