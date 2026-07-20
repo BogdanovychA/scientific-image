@@ -8,7 +8,7 @@
 
 ---
 
-Проєкт побудовано з використанням автоматизованого агентського підходу за патерном [LLM Wiki](https://www.bogdanovych.org/blog/vid-rag-do-llm-wiki/). Як створювався сайт читайте у статті [«LLM Wiki в дії»](https://www.bogdanovych.org/blog/llm-wiki-v-dii/)
+Проєкт побудовано з використанням автоматизованого агентського підходу за патерном [LLM Wiki](https://www.bogdanovych.org/blog/vid-rag-do-llm-wiki/). Як створювався сайт читайте у статті [«LLM Wiki в дії»](https://www.bogdanovych.org/blog/llm-wiki-v-dii/).
 
 Автор проєкту — [Андрій БОГДАНОВИЧ](https://www.bogdanovych.org/).
 
