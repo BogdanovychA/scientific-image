@@ -27,8 +27,15 @@
 .md-typeset h3 {
   font-family: var(--wiki-serif);
   font-weight: 400;
+  color: #0d0d0d;
   border-bottom: 1px solid var(--wiki-border);
   padding-bottom: 0.25em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #ffffff;
 }
 
 /* Таблиці у статтях — стиль Вікіпедії */
@@ -53,9 +60,14 @@
 .raw-title {
   font-family: var(--wiki-serif);
   font-weight: 400;
+  color: #0d0d0d;
   border-bottom: 1px solid var(--wiki-border);
   padding-bottom: 0.25em;
   margin-bottom: 0.5em;
+}
+
+[data-md-color-scheme="slate"] .raw-title {
+  color: #ffffff;
 }
 
 /* Кнопка «← На головну» */
@@ -114,6 +126,7 @@
   font-family: var(--wiki-serif);
   font-weight: 400;
   font-size: 1.6em;
+  color: #0d0d0d;
   margin: 1em 0 0.5em 0;
   padding-bottom: 0.25em;
   border-bottom: 1px solid var(--wiki-border);
@@ -124,9 +137,15 @@
   font-family: var(--wiki-serif);
   font-weight: 700;
   font-size: 1.1em;
+  color: #0d0d0d;
   margin: 1.2em 0 0.3em 0;
   padding-bottom: 0.15em;
   border-bottom: 1px solid var(--wiki-border);
+}
+
+[data-md-color-scheme="slate"] .section-title,
+[data-md-color-scheme="slate"] .alpha-section {
+  color: #ffffff;
 }
 
 /* Список статей під алфавітними розділами */
@@ -296,4 +315,21 @@
     margin: 0 auto 16px auto;
     max-width: 280px;
   }
+}
+
+/* Підвищений контраст для заголовку в шапці сторінки та заголовків навігації */
+.md-header__title {
+  color: #ffffff !important;
+  font-weight: 600;
+  opacity: 1 !important;
+}
+
+.md-nav__title {
+  color: #222222 !important;
+  font-weight: 600;
+  opacity: 1 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title {
+  color: #ffffff !important;
 }

@@ -68,7 +68,7 @@ This design system serves an academic knowledge base centered on scientific conc
 | **Code** | Roboto Mono | 12px | 400 | 1.4 | 0px | Inline code and block codes |
 
 ### Principles
-- **Wikipedia-like Headers**: All headings (`h1`, `h2`, `h3`) are styled with the serif font (`Linux Libertine`) at weight `400` with a subtle bottom border (`1px solid var(--wiki-border)`), reflecting classic scientific encyclopedias.
+- **Wikipedia-like High-Contrast Headers**: All headings (`h1`, `h2`, `h3`, `.raw-title`, `.section-title`, `.alpha-section`) are styled with the serif font (`Linux Libertine`) at weight `400` with a subtle bottom border (`1px solid var(--wiki-border)`). Colors are explicitly configured for maximal contrast: `#0d0d0d` in light theme and `#ffffff` in dark (slate) mode. Header and navigation titles (`.md-header__title`, `.md-nav__title`) are also styled with 100% opacity for high legibility.
 - **Contrast Pairing**: High-contrast serif text is utilized for reading long articles, while sans-serif text is utilized for navigation elements, sidebar links, and metadata descriptions.
 - **Generous Line Height**: Article text maintains a line height of `1.65` to maximize readability and reduce visual fatigue.
 
