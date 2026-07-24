@@ -45,6 +45,12 @@ UKRAINIAN_MAP = {c: i for i, c in enumerate(UKRAINIAN_ALPHABET)}
 LATIN_MAP = {c: i for i, c in enumerate(LATIN_ALPHABET)}
 
 
+def _get_clean_label(label):
+    """Видаляє початкові лапки та спецсимволи для коректного сортування та групування."""
+    cleaned = re.sub(r"^[^\w\u0400-\u04FF]+", "", label, flags=re.UNICODE).strip()
+    return cleaned if cleaned else label
+
+
 def _sort_key(label):
     """Ключ сортування для українських, латинських літер та символів.
 
@@ -121,13 +127,14 @@ def on_page_markdown(markdown, page, config, files):
     if not items:
         return markdown
 
-    # Сортування за алфавітом
-    items.sort(key=lambda x: _sort_key(x[0]))
+    # Сортування за алфавітом (з ігноруванням початкових лапок/спецсимволів)
+    items.sort(key=lambda x: (_sort_key(_get_clean_label(x[0])), _sort_key(x[0])))
 
     # Групування за першою літерою (верхній регістр)
     groups = {}
     for label, target, desc in items:
-        first = label[0].upper() if label else "#"
+        clean_label = _get_clean_label(label)
+        first = clean_label[0].upper() if clean_label else "#"
         if desc:
             groups.setdefault(first, []).append(
                 CONFIG["templates"]["list_item_with_desc"].format(
