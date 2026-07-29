@@ -23,9 +23,23 @@
   function isArticle(a) {
     var href = a.href;
     if (!href) return false;
+
+    // Виключаємо системні назви посилань
+    var text = (a.textContent || "").trim().toLowerCase();
+    if (text === "головна" || text === "про проєкт" || text === "джерела" || text === "усі статті") {
+      return false;
+    }
+
+    // Виключаємо відносні посилання на корінь або поточну папку
+    var attrHref = a.getAttribute("href") || "";
+    if (attrHref === "." || attrHref === "./" || attrHref === ".." || attrHref === "../" || attrHref === "/") {
+      return false;
+    }
+
     if (/raw\//.test(href)) return false;   // джерела
-    if (/#/.test(a.getAttribute("href") || "")) return false; // якорі
+    if (/#/.test(attrHref)) return false;   // якорі
     if (/index/.test(href)) return false;   // головна
+    if (/about/.test(href)) return false;   // про проєкт
     return /\/(concepts|entities|archives)\//.test(href);     // сторінка вікі
   }
 
