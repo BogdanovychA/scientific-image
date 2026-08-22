@@ -397,3 +397,11 @@
 - Оновлено: [naukovyi-metod](concepts/naukovyi-metod.md)
 - Оновлено: [mykhailo-vysotskyy](entities/mykhailo-vysotskyy.md)
 - Оновлено: [index.md](index.md)
+
+## [2026-08-22] ingest | Додано: Білі діри (виокремлено з джерела «Що може бути швидшим за світло?»)
+- Оброблено: [shcho-mozhe-buty-shvydshym-za-svitlo-nadsvitlovi-yavyshcha](../raw/2026-08-22/shcho-mozhe-buty-shvydshym-za-svitlo-nadsvitlovi-yavyshcha.md)
+- Створено: [bili-diry](concepts/bili-diry.md)
+- Оновлено: [nadsvitlovi-yavyshcha](concepts/nadsvitlovi-yavyshcha.md)
+- Оновлено: [krotovi-nory](concepts/krotovi-nory.md)
+- Оновлено: [hravitatsiia](concepts/hravitatsiia.md)
+- Оновлено: [index.md](index.md)
