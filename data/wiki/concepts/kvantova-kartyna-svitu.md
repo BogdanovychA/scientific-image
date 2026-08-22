@@ -1,9 +1,10 @@
 ---
 title: "Сучасна (квантова) картина світу"
 created: 2026-07-10
-updated: 2026-07-14
+updated: 2026-08-22
 sources:
   - "../../raw/2026-07-10/kvantova-kartyna-svitu.md"
+  - "../../raw/2026-08-22/shcho-mozhe-buty-shvydshym-za-svitlo-nadsvitlovi-yavyshcha.md"
   - "../../raw/2026-07-10/zmenshennia-atoma.md"
   - "../../raw/2026-07-10/istoriia-odnoho-fotona.md"
   - "../../raw/2026-07-10/shcho-take-kvantovyi-svit.md"

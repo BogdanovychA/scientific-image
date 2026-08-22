@@ -1,9 +1,10 @@
 ---
 title: "Будова матерії"
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-08-22
 sources:
   - "../../raw/2026-07-10/materiia-chastyna-1-temna-materiia-enerhiia-rechovyna-pole.md"
+  - "../../raw/2026-08-22/shcho-mozhe-buty-shvydshym-za-svitlo-nadsvitlovi-yavyshcha.md"
   - "../../raw/2026-07-10/zmenshennia-atoma.md"
   - "../../raw/2026-07-10/radioaktyvnist-chastyna-1.md"
   - "../../raw/2026-07-10/materiia-chastyna-2-molekuly-atomy-izotopy-kvarky.md"
