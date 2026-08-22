@@ -1,6 +1,6 @@
 ---
 title: "Що може бути швидшим за світло? Надсвітлові явища з точки зору науки. Науково-популярна лекція."
-source: "https://www.youtube.com/watch?v=UvF-uf2NeeQ&t=3051s"
+source: "https://www.youtube.com/watch?v=UvF-uf2NeeQ"
 collected: 2026-08-22
 published: 2026-08-21
 ---
