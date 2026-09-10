@@ -405,3 +405,14 @@
 - Оновлено: [krotovi-nory](concepts/krotovi-nory.md)
 - Оновлено: [hravitatsiia](concepts/hravitatsiia.md)
 - Оновлено: [index.md](index.md)
+
+## [2026-09-10] ingest | Додано: Як створюють неіснуюче. Фізика прискорювачів. Науково-популярна лекція.
+- Оброблено: [physics-of-particle-accelerators.md](../raw/2026-09-10/physics-of-particle-accelerators.md)
+- Створено: [pryskoriuvachi-chastynok](concepts/pryskoriuvachi-chastynok.md)
+- Створено: [velykyi-adronnyi-kolaider](entities/velykyi-adronnyi-kolaider.md)
+- Оновлено: [mykhailo-vysotskyy](entities/mykhailo-vysotskyy.md)
+- Оновлено: [elementarni-chastynky](concepts/elementarni-chastynky.md)
+- Оновлено: [antymateriia](concepts/antymateriia.md)
+- Оновлено: [masa](concepts/masa.md)
+- Оновлено: [kvantova-kartyna-svitu](concepts/kvantova-kartyna-svitu.md)
+- Оновлено: [index.md](index.md)
