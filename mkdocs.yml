@@ -49,8 +49,12 @@ markdown_extensions:
       permalink: true
   - pymdownx.superfences
   - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
 extra_css:
   - static/styles/wikipedia.css
 extra_javascript:
   - static/scripts/random-articles.js
   - static/scripts/external-links.js
+  - static/scripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
