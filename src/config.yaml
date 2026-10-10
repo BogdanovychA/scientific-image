@@ -13,6 +13,11 @@ navigation:
   about_title: "Про проєкт"
   about_page_path: "pages/about/"
 
+# Безпека (/.well-known/security.txt за стандартом RFC 9116)
+security:
+  contact: "mailto:ciso@bogdanovych.org"
+  languages: "uk, en"
+
 # Шаблони форматування алфавітного покажчика
 templates:
   letter_section: '<p id="letter-{letter}" class="alpha-section">{letter}</p>'

@@ -9,6 +9,7 @@
 
 import os
 import re
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urlparse
 
 import markdown
@@ -38,6 +39,10 @@ FOOTER_NOTE_HTML = markdown.markdown(FOOTER_NOTE_RAW).strip()
 ROBOTS_PATH = os.path.join(HOOKS_DIR, "templates", "robots.txt")
 with open(ROBOTS_PATH, encoding="utf-8") as fh:
     ROBOTS_TEMPLATE = fh.read()
+
+SECURITY_PATH = os.path.join(HOOKS_DIR, "templates", "security.txt")
+with open(SECURITY_PATH, encoding="utf-8") as fh:
+    SECURITY_TEMPLATE = fh.read()
 
 # Посилання вигляду [Текст](шлях)
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
@@ -177,7 +182,7 @@ def on_page_markdown(markdown, page, config, files):
 
 
 def on_post_build(config):
-    """Генеруємо файл index.html, CNAME та robots.txt в корені папки site."""
+    """Генеруємо файл index.html, CNAME, robots.txt та /.well-known/security.txt."""
     site_dir = config.get("site_dir", "site")
     index_path = os.path.join(site_dir, "index.html")
 
@@ -211,6 +216,36 @@ def on_post_build(config):
     try:
         with open(robots_path, "w", encoding="utf-8") as f:
             f.write(content)
+    except OSError:
+        pass
+
+    # 4. Файл /.well-known/security.txt (RFC 9116)
+    well_known_dir = os.path.join(site_dir, ".well-known")
+    try:
+        os.makedirs(well_known_dir, exist_ok=True)
+        security_path = os.path.join(well_known_dir, "security.txt")
+        sec_cfg = CONFIG.get("security", {})
+        contact = sec_cfg.get("contact", "mailto:ciso@bogdanovych.org")
+        languages = sec_cfg.get("languages", "uk, en")
+        expires = sec_cfg.get("expires") or (
+            datetime.now(timezone.utc) + timedelta(days=365)
+        ).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+        canonical_directive = (
+            f"\nCanonical: {site_url.rstrip('/')}/.well-known/security.txt\n"
+            if site_url
+            else ""
+        )
+        security_content = (
+            SECURITY_TEMPLATE.format(
+                contact=contact,
+                expires=expires,
+                languages=languages,
+                canonical_directive=canonical_directive,
+            ).rstrip()
+            + "\n"
+        )
+        with open(security_path, "w", encoding="utf-8") as f:
+            f.write(security_content)
     except OSError:
         pass
 
