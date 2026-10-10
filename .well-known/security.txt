@@ -1,0 +1,4 @@
+Contact: mailto:ciso@bogdanovych.org
+Expires: 2027-10-10T04:57:48.000Z
+Preferred-Languages: uk, en
+Canonical: https://scientific-image.bogdanovych.org/.well-known/security.txt
