@@ -35,6 +35,10 @@ with open(FOOTER_NOTE_PATH, encoding="utf-8") as fh:
     FOOTER_NOTE_RAW = fh.read()
 FOOTER_NOTE_HTML = markdown.markdown(FOOTER_NOTE_RAW).strip()
 
+ROBOTS_PATH = os.path.join(HOOKS_DIR, "templates", "robots.txt")
+with open(ROBOTS_PATH, encoding="utf-8") as fh:
+    ROBOTS_TEMPLATE = fh.read()
+
 # Посилання вигляду [Текст](шлях)
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 
@@ -173,7 +177,7 @@ def on_page_markdown(markdown, page, config, files):
 
 
 def on_post_build(config):
-    """Генеруємо файл index.html та CNAME в корені папки site."""
+    """Генеруємо файл index.html, CNAME та robots.txt в корені папки site."""
     site_dir = config.get("site_dir", "site")
     index_path = os.path.join(site_dir, "index.html")
 
@@ -195,6 +199,20 @@ def on_post_build(config):
                     f.write(domain)
             except OSError:
                 pass
+
+    # 3. Файл robots.txt
+    robots_path = os.path.join(site_dir, "robots.txt")
+    sitemap_directive = (
+        f"\nSitemap: {site_url.rstrip('/')}/sitemap.xml\n" if site_url else ""
+    )
+    content = (
+        ROBOTS_TEMPLATE.format(sitemap_directive=sitemap_directive).rstrip() + "\n"
+    )
+    try:
+        with open(robots_path, "w", encoding="utf-8") as f:
+            f.write(content)
+    except OSError:
+        pass
 
 
 def on_config(config):
