@@ -285,7 +285,7 @@ def on_config(config):
     pages_dir = os.path.join(docs_dir, "pages")
     if os.path.isdir(pages_dir):
         for file in sorted(os.listdir(pages_dir)):
-            if file.endswith(".md"):
+            if file.endswith(".md") and "sync-conflict" not in file:
                 rel_path = f"pages/{file}"
                 nav.append(rel_path)
 
