@@ -19,8 +19,8 @@ This design system serves an academic knowledge base centered on scientific conc
 ## 2. Color Palette & Roles
 
 ### Primary (Theme Brand)
-- **Primary Blue-Grey** (`#607D8B`): Core brand color for header backgrounds and primary layout wrapper elements (configured via MkDocs Material palette)
-- **Slate Header BG** (`#546D78`): Secondary shade for navigation bars and header states
+- **Primary Blue-Grey** (`#607D8B`): Core brand color for primary layout wrapper elements (configured via MkDocs Material palette)
+- **Slate Header BG** (`#546D78`): Core header background color (`--md-primary-fg-color`) ensuring WCAG 1.4.3 AA text contrast (> 5.4:1 against white text)
 
 ### Accent & Interactive
 - **Link Blue** (`#1565C0`): Interactive color for text links, navigation links, and hover states
@@ -111,6 +111,10 @@ This design system serves an academic knowledge base centered on scientific conc
 - **Cells**: Th/td padding `4px 8px`, border `1px solid var(--wiki-border)`
 - **Headers (th)**: Background `var(--wiki-header-bg)`, text-align `left`
 - **Zebra Striping**: Even rows (`tr:nth-child(even)`) use background color `var(--wiki-box-bg)`
+
+### Accessibility Keyboard Focus States (`:focus-visible`)
+- **High-Contrast Indicators**: Interactive UI elements (`.alpha-nav-link`, `.home-link a`, `.random-articles a`, `.md-copyright a`) feature an explicit `2px solid var(--md-typeset-a-color, #1565C0)` focus ring with `2px` offset during keyboard navigation, ensuring compliance with WCAG 2.4.7 Focus Visible.
+- **Semantic Sectioning**: Index header is marked as semantic `<h2>` (`.section-title`), and alphabetical groupings are styled as semantic `<h3>` (`.alpha-section`) wrapped within an accessible `<nav class="alpha-nav" aria-label="Алфавітний покажчик">` landmark region (WCAG 1.3.1 / 2.4.6).
 
 ### Article Portrait Images (`.wiki-article--person img:first-of-type`, `.portrait`, `.wiki-portrait`)
 - **Layout**: Float to the right (`float: right; clear: right;`), width `100%`, max-width `230px`, height `auto`

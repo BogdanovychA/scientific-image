@@ -12,6 +12,8 @@ navigation:
   sources_title: "Джерела"
   about_title: "Про проєкт"
   about_page_path: "pages/about/"
+  accessibility_title: "Доступність"
+  accessibility_page_path: "pages/accessibility/"
 
 # Безпека (/.well-known/security.txt за стандартом RFC 9116)
 security:
@@ -20,8 +22,8 @@ security:
 
 # Шаблони форматування алфавітного покажчика
 templates:
-  letter_section: '<p id="letter-{letter}" class="alpha-section">{letter}</p>'
+  letter_section: '<h3 id="letter-{letter}" class="alpha-section">{letter}</h3>'
   list_item_with_desc: '- <span class="article-title">[{label}]({target})</span><span class="article-desc">{desc}</span>'
   list_item_no_desc: '- <span class="article-title">[{label}]({target})</span>'
-  alpha_nav_wrapper: '<div class="alpha-nav">{links}</div>'
-  alpha_nav_link: '<a href="#letter-{letter}" class="alpha-nav-link">{letter}</a>'
+  alpha_nav_wrapper: '<nav class="alpha-nav" aria-label="Алфавітний покажчик">{links}</nav>'
+  alpha_nav_link: '<a href="#letter-{letter}" class="alpha-nav-link" aria-label="Літера {letter}">{letter}</a>'

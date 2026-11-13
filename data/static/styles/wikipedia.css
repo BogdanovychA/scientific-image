@@ -1,6 +1,7 @@
 /* wikipedia.css — Вікіпедія-стиль */
 
 :root {
+  --md-primary-fg-color: #546d78;
   --wiki-serif: "Linux Libertine", "Georgia", "Times New Roman", serif;
   --wiki-border: #a2a9b1;
   --wiki-header-bg: #eaecf0;
@@ -53,10 +54,8 @@
   text-align: left;
 }
 
-/* Сторінка-джерело: приховуємо оригінальний H1 (замінено на .raw-title) */
-.raw-source h1:not(.raw-title) {
-  display: none !important;
-}
+/* Сторінка-джерело: стилізація заголовку */
+.raw-source h1,
 .raw-title {
   font-family: var(--wiki-serif);
   font-weight: 400;
@@ -66,6 +65,7 @@
   margin-bottom: 0.5em;
 }
 
+[data-md-color-scheme="slate"] .raw-source h1,
 [data-md-color-scheme="slate"] .raw-title {
   color: #ffffff;
 }
@@ -121,8 +121,9 @@
   text-decoration: underline;
 }
 
-/* Заголовок «Усі статті» на головній (HTML <p>, не потрапляє в TOC) */
-.section-title {
+/* Заголовок «Усі статті» на головній (семантичний H2) */
+.section-title,
+.md-typeset h2.section-title {
   font-family: var(--wiki-serif);
   font-weight: 400;
   font-size: 1.6em;
@@ -132,8 +133,9 @@
   border-bottom: 1px solid var(--wiki-border);
 }
 
-/* Алфавітні розділи-покажчики на головній (генеруються як <p>) */
-.alpha-section {
+/* Алфавітні розділи-покажчики на головній (семантичні H3) */
+.alpha-section,
+.md-typeset h3.alpha-section {
   font-family: var(--wiki-serif);
   font-weight: 700;
   font-size: 1.1em;
@@ -144,8 +146,19 @@
 }
 
 [data-md-color-scheme="slate"] .section-title,
-[data-md-color-scheme="slate"] .alpha-section {
+[data-md-color-scheme="slate"] .md-typeset h2.section-title,
+[data-md-color-scheme="slate"] .alpha-section,
+[data-md-color-scheme="slate"] .md-typeset h3.alpha-section {
   color: #ffffff;
+}
+
+/* Чіткий індикатор фокусу для клавіатурної навігації (WCAG 2.4.7) */
+.alpha-nav-link:focus-visible,
+.home-link a:focus-visible,
+.random-articles a:focus-visible,
+.md-copyright a:focus-visible {
+  outline: 2px solid var(--md-typeset-a-color, #1565c0);
+  outline-offset: 2px;
 }
 
 /* Список статей під алфавітними розділами */

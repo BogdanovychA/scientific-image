@@ -2,6 +2,10 @@
   {% if config.copyright %}
     <div class="md-copyright__highlight">
       <a href="{{ about_page_path | url }}">{{ config.copyright }}</a>
+      {% if accessibility_page_path %}
+        ·
+        <a href="{{ accessibility_page_path | url }}">Доступність</a>
+      {% endif %}
     </div>
   {% endif %}
   {% if footer_note %}

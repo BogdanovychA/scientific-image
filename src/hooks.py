@@ -172,8 +172,8 @@ def on_page_markdown(markdown, page, config, files):
 
     body_parts = []
     for letter in letters:
-        # Використовуємо <p> (а не <h3>/###), щоб Material НЕ додавав
-        # ці розділи в автоматичний TOC (лівий/правий сайдбар)
+        # Використовуємо <h3> із класом alpha-section для семантичної
+        # доступності скрінрідерів (ДСТУ EN 301 549 п. 9.1.3.1 / WCAG 1.3.1).
         body_parts.append(CONFIG["templates"]["letter_section"].format(letter=letter))
         body_parts.append("\n".join(groups[letter]))
         body_parts.append("")  # порожній рядок між літерами
@@ -261,7 +261,7 @@ def on_config(config):
         cat_dir = os.path.join(docs_dir, "wiki", category)
         if os.path.isdir(cat_dir):
             for file in sorted(os.listdir(cat_dir)):
-                if file.endswith(".md"):
+                if file.endswith(".md") and "sync-conflict" not in file:
                     rel_path = f"wiki/{category}/{file}"
                     articles.append(rel_path)
     if articles:
@@ -273,7 +273,7 @@ def on_config(config):
     if os.path.isdir(raw_dir):
         for root, dirs, files in os.walk(raw_dir):
             for file in files:
-                if file.endswith(".md"):
+                if file.endswith(".md") and "sync-conflict" not in file:
                     abs_path = os.path.join(root, file)
                     rel_path = os.path.relpath(abs_path, docs_dir).replace("\\", "/")
                     sources.append(rel_path)
@@ -293,8 +293,49 @@ def on_config(config):
     return config
 
 
+def on_page_content(html, page, config, files):
+    """Обробка HTML після рендерингу Markdown.
+
+    1. На сторінках-джерелах (raw) вставляємо відео та дату публікації
+       безпосередньо після H1, зберігаючи єдиний семантичний H1 з оригінальним ID
+       для коректної роботи Skip-link (WCAG 2.4.1 / ДСТУ 9.2.4.1).
+    2. Виправляємо неінформативні alt у медіафайлах для WCAG 1.1.1.
+    """
+    if page.meta and "source" in page.meta:
+        video_html = ""
+        source_url = page.meta.get("source", "")
+        if "youtube" in source_url or "youtu.be" in source_url:
+            video_id = (
+                source_url.replace("https://www.youtube.com/watch?v=", "")
+                .replace("https://youtu.be/", "")
+                .split("&")[0]
+            )
+            title_text = page.meta.get("title", "Відео")
+            video_html += (
+                f'<div class="video-embed">'
+                f'<iframe src="https://www.youtube.com/embed/{video_id}" '
+                f'title="Відео: {title_text}" frameborder="0" '
+                f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+                f'allowfullscreen></iframe></div>\n'
+            )
+        published = page.meta.get("published")
+        if published:
+            video_html += f'<p class="raw-published"><strong>Опубліковано:</strong> {published}</p>\n'
+
+        if video_html:
+            html = re.sub(r"(</h1>)", r"\1\n" + video_html, html, count=1)
+
+    # Виправляємо неінформативний alt для портрета Висоцького
+    html = html.replace('alt="mihas"', 'alt="Михайло Висоцький"')
+
+    return html
+
+
 def on_page_context(context, page, config, **kwargs):
     """Додаємо шаблонне повідомлення у футер усіх сторінок."""
     context["footer_note"] = FOOTER_NOTE_HTML
     context["about_page_path"] = CONFIG["navigation"]["about_page_path"]
+    context["accessibility_page_path"] = CONFIG["navigation"].get(
+        "accessibility_page_path", "pages/accessibility/"
+    )
     return context

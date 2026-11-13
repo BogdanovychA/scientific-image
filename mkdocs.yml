@@ -16,6 +16,8 @@ exclude_docs: |
   .agents/**
   templates/**
   inbox/**
+  **/*.sync-conflict-*
+  *sync-conflict*
 theme:
   name: material
   favicon: static/images/favicon.png
